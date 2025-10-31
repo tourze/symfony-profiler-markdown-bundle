@@ -1,0 +1,41 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  # Controllers
+  Tourze\ProfilerMarkdownBundle\Controller\ProfilerMarkdownController: ~
+
+  # Services
+  Tourze\ProfilerMarkdownBundle\Service\AttributeControllerLoader: ~
+
+  # Formatters
+  Tourze\ProfilerMarkdownBundle\Formatter\DoctrineFormatter:
+    tags: ['profiler.markdown_formatter']
+
+  Tourze\ProfilerMarkdownBundle\Formatter\LoggerFormatter:
+    tags: ['profiler.markdown_formatter']
+
+  Tourze\ProfilerMarkdownBundle\Formatter\RequestFormatter:
+    tags: ['profiler.markdown_formatter']
+
+  Tourze\ProfilerMarkdownBundle\Formatter\SecurityFormatter:
+    tags: ['profiler.markdown_formatter']
+
+  Tourze\ProfilerMarkdownBundle\Formatter\TimeFormatter:
+    tags: ['profiler.markdown_formatter']
+
+  Tourze\ProfilerMarkdownBundle\Formatter\TwigFormatter:
+    tags: ['profiler.markdown_formatter']
+
+  # Registry with manual injection instead of tagged_iterator
+  Tourze\ProfilerMarkdownBundle\Formatter\FormatterRegistry:
+    arguments:
+      $formatters:
+        - '@Tourze\ProfilerMarkdownBundle\Formatter\DoctrineFormatter'
+        - '@Tourze\ProfilerMarkdownBundle\Formatter\LoggerFormatter'
+        - '@Tourze\ProfilerMarkdownBundle\Formatter\RequestFormatter'
+        - '@Tourze\ProfilerMarkdownBundle\Formatter\SecurityFormatter'
+        - '@Tourze\ProfilerMarkdownBundle\Formatter\TimeFormatter'
+        - '@Tourze\ProfilerMarkdownBundle\Formatter\TwigFormatter'

@@ -1,1 +1,0 @@
-# symfony-profiler-markdown-bundle
