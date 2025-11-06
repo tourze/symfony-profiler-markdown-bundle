@@ -89,7 +89,22 @@ final class UserInfoFormatter
     {
         $roles = $this->getValue($collector->getRoles());
 
-        return is_array($roles) ? $roles : [];
+        if (!is_array($roles)) {
+            return [];
+        }
+
+        // 确保所有角色都是字符串类型，过滤掉非字符串类型的值
+        $stringRoles = [];
+        foreach ($roles as $role) {
+            if (is_string($role)) {
+                $stringRoles[] = $role;
+            } elseif (is_scalar($role)) {
+                $stringRoles[] = (string) $role;
+            }
+            // 忽略对象、数组等复杂类型
+        }
+
+        return $stringRoles;
     }
 
     /**

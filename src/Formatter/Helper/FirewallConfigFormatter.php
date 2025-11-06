@@ -19,6 +19,21 @@ final class FirewallConfigFormatter
     }
 
     /**
+     * 确保数组键都是字符串类型
+     *
+     * @param array<mixed, mixed> $array
+     * @return array<string, mixed>
+     */
+    private function ensureStringKeys(array $array): array
+    {
+        $result = [];
+        foreach ($array as $key => $value) {
+            $result[(string) $key] = $value;
+        }
+        return $result;
+    }
+
+    /**
      * @return array<int, string>
      */
     public function format(mixed $firewall): array
@@ -33,7 +48,7 @@ final class FirewallConfigFormatter
         ];
 
         $content = is_array($firewall)
-            ? $this->formatFirewallArray($firewall)
+            ? $this->formatFirewallArray($this->ensureStringKeys($firewall))
             : $this->formatFirewallScalar($firewall);
 
         return array_merge($markdown, $content);
