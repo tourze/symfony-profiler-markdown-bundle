@@ -1,6 +1,6 @@
 {
   "name": "tourze/symfony-profiler-markdown-bundle",
-  "description": "",
+  "description": "A Symfony bundle that exports Symfony Profiler data as Markdown format for easy sharing and archiving",
   "type": "symfony-bundle",
   "license": "MIT",
   "require": {
