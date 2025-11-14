@@ -30,6 +30,7 @@ final class FirewallConfigFormatter
         foreach ($array as $key => $value) {
             $result[(string) $key] = $value;
         }
+
         return $result;
     }
 
