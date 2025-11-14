@@ -10,7 +10,6 @@
     "symfony/doctrine-bridge": "^7.3",
     "symfony/event-dispatcher": "^7.3",
     "symfony/finder": "^7.3",
-    "symfony/form": "^7.3",
     "symfony/framework-bundle": "^7.3",
     "symfony/http-foundation": "^7.3",
     "symfony/http-kernel": "^7.3",
