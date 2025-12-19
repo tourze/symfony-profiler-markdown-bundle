@@ -4,7 +4,7 @@ namespace Tourze\ProfilerMarkdownBundle\DependencyInjection;
 
 use Tourze\SymfonyDependencyServiceLoader\AutoExtension;
 
-class ProfilerMarkdownExtension extends AutoExtension
+final class ProfilerMarkdownExtension extends AutoExtension
 {
     protected function getConfigDir(): string
     {
